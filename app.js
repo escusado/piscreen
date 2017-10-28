@@ -2,7 +2,7 @@ var rpio = require('rpio');
 
 rpio.open(11, rpio.INPUT, rpio.PULL_UP);
 console.log('wattdup');
-
+var blueCounter = 0;
 function pollcb(pin)
 {
         /*
@@ -10,8 +10,11 @@ function pollcb(pin)
          * may be missed during the 1ms poll window.  The best we can do is to
          * print the current state after a event is detected.
          */
-        var state = rpio.read(pin) ? 'pressed' : 'released';
-        console.log('Button event on P%d (button currently %s)', pin, state);
+        var blueStatus = !rpio.read(pin);
+
+        if(blueStatus){
+          console.log('>got', blueStatus, blueCounter++);
+        }
 }
 
 rpio.poll(11, pollcb);
