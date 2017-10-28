@@ -10,6 +10,11 @@ FROM resin/raspberrypi3-node:6-slim
 #    alsa-utils libasound2-dev && \
 #    apt-get clean && rm -rf /var/lib/apt/lists/*
 
+RUN apk add --no-cache --virtual .gyp \
+        python \
+        make \
+        g++ \
+
 # Defines our working directory in container
 WORKDIR /usr/src/app
 
