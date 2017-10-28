@@ -48,4 +48,4 @@ function pollcb(pin)
         console.log('Button event on P%d (button currently %s)', pin, state);
 }
 
-rpio.poll(15, pollcb);
+rpio.poll(11, pollcb);
