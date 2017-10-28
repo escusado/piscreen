@@ -14,7 +14,7 @@ FROM resin/raspberrypi3-node:6-slim
 WORKDIR /usr/src/app
 
 # Copies the package.json first for better cache on later pushes
-COPY package.json package.json
+COPY . ./
 
 # This install npm dependencies on the resin.io build server,
 # making sure to clean up the artifacts it creates in order to reduce the image size.
