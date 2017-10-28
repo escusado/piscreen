@@ -9,14 +9,14 @@ FROM resin/raspberrypi3-alpine-node:6-slim
 #RUN apt-get update && apt-get install -yq \
 #    alsa-utils libasound2-dev && \
 #    apt-get clean && rm -rf /var/lib/apt/lists/*
+WORKDIR /usr/src/app
 
 RUN apk add --no-cache --virtual .gyp \
         python \
         make \
-        g++ \
+        g++
 
 # Defines our working directory in container
-WORKDIR /usr/src/app
 
 # Copies the package.json first for better cache on later pushes
 COPY . ./
