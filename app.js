@@ -18,3 +18,5 @@ button.on('rise', function () {
     ledToggle = !ledToggle;
     led.value(ledToggle);
 });
+
+console.log('app started button away!');
