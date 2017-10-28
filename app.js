@@ -27,9 +27,9 @@ console.log('app started button away!');
 
 rpio.open(11, rpio.INPUT);
 
-// var checkFn = function(){
-//   console.log('Pin 11 is currently set ' + (rpio.read(11) ? 'high' : 'low'));
-//   checkTimeout = setTimeout(checkFn, 1000);
-// }
-//
-// var checkTimeout = setTimeout(checkFn, 1000);
+var checkFn = function(){
+  console.log('Pin 11 is currently set ' + (rpio.read(11) ? 'high' : 'low'));
+  checkTimeout = setTimeout(checkFn, 1000);
+}
+
+var checkTimeout = setTimeout(checkFn, 1000);
