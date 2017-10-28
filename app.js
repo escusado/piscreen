@@ -25,27 +25,11 @@ var rpio = require('rpio');
 console.log('app started button away!');
 
 
-// rpio.open(11, rpio.INPUT);
-//
-// var checkFn = function(){
-//   console.log('Pin 11 is currently set ' + (rpio.read(11) ? 'high' : 'low'));
-//   checkTimeout = setTimeout(checkFn, 1000);
-// }
-//
-// var checkTimeout = setTimeout(checkFn, 1000);
+rpio.open(11, rpio.INPUT);
 
-
-rpio.open(11, rpio.INPUT, rpio.PULL_DOWN);
-
-function pollcb(pin)
-{
-        /*
-         * Interrupts aren't supported by the underlying hardware, so events
-         * may be missed during the 1ms poll window.  The best we can do is to
-         * print the current state after a event is detected.
-         */
-        var state = rpio.read(pin) ? 'pressed' : 'released';
-        console.log('Button event on P%d (button currently %s)', pin, state);
+var checkFn = function(){
+  console.log('Pin 11 is currently set ' + (rpio.read(11) ? 'high' : 'low'));
+  checkTimeout = setTimeout(checkFn, 1000);
 }
 
-rpio.poll(11, pollcb);
+var checkTimeout = setTimeout(checkFn, 1000);
