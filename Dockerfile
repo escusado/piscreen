@@ -31,5 +31,7 @@ COPY . ./
 # Enable systemd init system in container
 ENV INITSYSTEM on
 
+RUN cat >/etc/udev/rules.d/20-gpiomem.rules <<EOF
+
 # server.js will run when container starts up on the device
 CMD ["npm", "start"]
