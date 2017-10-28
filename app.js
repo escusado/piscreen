@@ -1,7 +1,7 @@
 var rpio = require('rpio');
 
 rpio.open(11, rpio.INPUT, rpio.PULL_UP);
-console.log('wattup');
+console.log('wattdup');
 
 function pollcb(pin)
 {
