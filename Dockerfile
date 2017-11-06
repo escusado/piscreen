@@ -21,10 +21,7 @@ RUN apk update && \
         autoconf \
         automake \
         libtool \
-        python \
-        && \
-    apt-get update && \
-    apt-get upgrade
+        python 
 
 # Defines our working directory in container
 WORKDIR /usr/src/app
