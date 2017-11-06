@@ -21,7 +21,8 @@ RUN apk update && \
         cmake \
         autoconf \
         automake \
-        libtool
+        libtool \
+        python
 
 # Defines our working directory in container
 
