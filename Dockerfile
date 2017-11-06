@@ -22,7 +22,7 @@ RUN apk update && \
         automake \
         libtool \
         python \
-        libc6-compat
+        libc6-compat \
         build-base \
         abuild \
         binutils \
