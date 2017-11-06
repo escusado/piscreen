@@ -9,7 +9,6 @@ FROM resin/raspberrypi3-alpine-node:6-slim
 #RUN apt-get update && apt-get install -yq \
 #    alsa-utils libasound2-dev && \
 #    apt-get clean && rm -rf /var/lib/apt/lists/*
-WORKDIR /usr/src/app
 
 RUN apk update && \
     apk upgrade && \
@@ -25,6 +24,7 @@ RUN apk update && \
         python
 
 # Defines our working directory in container
+WORKDIR /usr/src/app
 
 # Copies the package.json first for better cache on later pushes
 COPY . ./
@@ -42,7 +42,13 @@ ENV INITSYSTEM on
 RUN cat >/etc/udev/rules.d/20-gpiomem.rules <<EOF
 
 # server.js will run when container starts up on the device
-CMD ["npm", "start"]
+
 
 WORKDIR /usr/src/
-RUN git clone git://github.com/scanlime/fadecandy
+RUN git clone git://github.com/scanlime/fadecandy \
+    cd fadecandy/server \
+    make submodules \
+    make \
+    sudo mv fcserver /usr/local/bin
+
+CMD ["/usr/local/bin/fcserver /usr/src/app/fcserver-config.json >/var/log/fcserver.log 2>&1 &","npm", "start"]
