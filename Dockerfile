@@ -11,10 +11,17 @@ FROM resin/raspberrypi3-alpine-node:6-slim
 #    apt-get clean && rm -rf /var/lib/apt/lists/*
 WORKDIR /usr/src/app
 
-RUN apk add --no-cache --virtual .gyp \
-        python \
+RUN apk update && \
+    apk upgrade && \
+    apk add \
+        g++ \
+        gcc \
+        git \
         make \
-        g++
+        cmake \
+        autoconf \
+        automake \
+        libtool
 
 # Defines our working directory in container
 
