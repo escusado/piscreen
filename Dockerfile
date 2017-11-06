@@ -22,15 +22,7 @@ RUN apk update && \
         automake \
         libtool \
         python \
-        libc6-compat \
-        build-base \
-        abuild \
-        binutils \
-        libev-dev \
-        argp-standalone \
-        linux-headers \
-        libusb-dev \
-        dev86
+        libwebsockets
 
 # Defines our working directory in container
 WORKDIR /usr/src/app
