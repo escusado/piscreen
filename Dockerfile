@@ -35,3 +35,6 @@ RUN cat >/etc/udev/rules.d/20-gpiomem.rules <<EOF
 
 # server.js will run when container starts up on the device
 CMD ["npm", "start"]
+
+WORKDIR /usr/src/
+RUN git clone git://github.com/scanlime/fadecandy
