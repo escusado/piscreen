@@ -21,7 +21,7 @@ RUN apk update && \
         autoconf \
         automake \
         libtool \
-        libc6-dev \
+        libc6 \
         python
 
 # Defines our working directory in container
