@@ -45,10 +45,10 @@ RUN cat >/etc/udev/rules.d/20-gpiomem.rules <<EOF
 
 
 WORKDIR /usr/src/
-RUN git clone git://github.com/scanlime/fadecandy \
-    cd fadecandy/server \
-    make submodules \
-    make \
+RUN git clone git://github.com/scanlime/fadecandy && \
+    cd fadecandy/server && \
+    make submodules && \
+    make && \
     sudo mv fcserver /usr/local/bin
 
 CMD ["/usr/local/bin/fcserver /usr/src/app/fcserver-config.json >/var/log/fcserver.log 2>&1 &","npm", "start"]
