@@ -43,6 +43,7 @@ RUN git clone git://github.com/scanlime/fadecandy && \
     sudo mv fcserver /usr/local/bin
 
 WORKDIR /usr/src/app
+RUN cp /usr/src/fadecandy/examples/node/opc.js /usr/src/app
 RUN rm -rf /usr/src/fadecandy
 
 CMD ["npm", "start"]

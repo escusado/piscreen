@@ -1,19 +1,17 @@
 console.log('starting app...');
 
+var exec = require('child_process').exec;
+// var coffeeProcess = exec('fcserver /usr/src/app/fcserver-config.json');
+//
+// coffeeProcess.stdout.on('data', function(data) {
+//     console.log(data);
+// });
+
+// exec('echo watussi').stdout.pipe(process.stdout);
+exec('echo dale pal piso && fcserver /usr/src/app/fcserver-config.json').stdout.pipe(process.stdout);
+// exec('echo bellaquera').stdout.pipe(process.stdout);
+
 let rpio = require('rpio');
-
-const { spawn } = require('child_process');
-const child = spawn('fcserver /usr/src/app/fcserver-config.json');
-
-child.stdout.on('data', (data) => {
-  console.log(`child stdout:\n${data}`);
-});
-
-child.stderr.on('data', (data) => {
-  console.error(`child stderr:\n${data}`);
-});
-
-
 rpio.open(11, rpio.INPUT, rpio.PULL_UP);
 console.log('wattdup');
 let blueCounter = 0;
