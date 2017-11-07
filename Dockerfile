@@ -28,4 +28,4 @@ COPY . ./
 ENV INITSYSTEM on
 RUN cat >/etc/udev/rules.d/20-gpiomem.rules <<EOF
 
-CMD ["/usr/src/fadecandy/bin/fcserver-rpi /usr/src/app/fcserver-config.json >/var/log/fcserver.log &","npm", "start"]
+CMD ["/usr/src/app/fcserver-rpi /usr/src/app/fcserver-config.json >/var/log/fcserver.log &","npm", "start"]
