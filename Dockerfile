@@ -17,7 +17,7 @@ RUN apk update && \
 WORKDIR /usr/src/
 RUN git clone git://github.com/scanlime/fadecandy
 RUN cp /usr/src/fadecandy/bin/fcserver-rpi /usr/src/app
-RUN rm -rf /usr/src/fadecandy
+RUN rm -rf /usr/src/fadecandy/
 
 WORKDIR /usr/src/app
 COPY . ./
