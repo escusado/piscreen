@@ -1,13 +1,18 @@
-console.log('startin app...');
+console.log('starting app...');
 
 let rpio = require('rpio');
 
+const { spawn } = require('child_process');
+const child = spawn('fcserver /usr/src/app/fcserver-config.json');
 
-// /usr/local/bin/fcserver /usr/src/app/fcserver-config.json > /var/log/fcserver.log 2>&1 &
-
-let child = require('child_process').exec('/usr/local/bin/fcserver /usr/src/app/fcserver-config.json', [], function(err, stdout, stderr) {
-    console.log(stdout);
+child.stdout.on('data', (data) => {
+  console.log(`child stdout:\n${data}`);
 });
+
+child.stderr.on('data', (data) => {
+  console.error(`child stderr:\n${data}`);
+});
+
 
 rpio.open(11, rpio.INPUT, rpio.PULL_UP);
 console.log('wattdup');
