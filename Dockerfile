@@ -44,7 +44,8 @@ RUN git clone git://github.com/scanlime/fadecandy && \
 
 WORKDIR /usr/src/app
 RUN rm -rf /usr/src/fadecandy
-CMD ["/usr/local/bin/fcserver /usr/src/app/fcserver-config.json >/var/log/fcserver.log 2>&1 &","npm", "start"]
+RUN touch /var/log/fcserver.log
+CMD ["fcserver /usr/src/app/fcserver-config.json > /var/log/fcserver.log 2>&1 &","npm", "start"]
 
 
 
