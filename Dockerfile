@@ -14,11 +14,6 @@ RUN apk update && \
         python \
         sudo
 
-WORKDIR /usr/src/
-RUN git clone git://github.com/scanlime/fadecandy
-RUN cp /usr/src/fadecandy/bin/fcserver-rpi /usr/src/app
-RUN rm -rf /usr/src/fadecandy/
-
 WORKDIR /usr/src/app
 COPY . ./
 
@@ -28,4 +23,10 @@ COPY . ./
 ENV INITSYSTEM on
 RUN cat >/etc/udev/rules.d/20-gpiomem.rules <<EOF
 
+WORKDIR /usr/src/
+RUN git clone git://github.com/scanlime/fadecandy
+RUN cp /usr/src/fadecandy/bin/fcserver-rpi /usr/src/app
+RUN rm -rf /usr/src/fadecandy/
+
+WORKDIR /usr/src/app
 CMD ["/usr/src/app/fcserver-rpi /usr/src/app/fcserver-config.json >/var/log/fcserver.log &","npm", "start"]
