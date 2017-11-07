@@ -8,8 +8,8 @@ var exec = require('child_process').exec;
 // });
 
 // exec('echo watussi').stdout.pipe(process.stdout);
-exec('echo dale pal piso && fcserver /usr/src/app/fcserver-config.json').stdout.pipe(process.stdout);
-// exec('echo bellaquera').stdout.pipe(process.stdout);
+exec('echo dale pal piso! && fcserver /usr/src/app/fcserver-config.json').stdout.pipe(process.stdout);
+// exec('echo bellaquera').stdout.pipe(process.stdout);f
 
 let rpio = require('rpio');
 rpio.open(11, rpio.INPUT, rpio.PULL_UP);
