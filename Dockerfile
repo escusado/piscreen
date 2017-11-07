@@ -21,8 +21,7 @@ RUN apk update && \
         autoconf \
         automake \
         libtool \
-        python \
-        libwebsockets
+        python
 
 # Defines our working directory in container
 WORKDIR /usr/src/app
@@ -47,9 +46,6 @@ RUN cat >/etc/udev/rules.d/20-gpiomem.rules <<EOF
 
 WORKDIR /usr/src/
 RUN git clone git://github.com/scanlime/fadecandy && \
-    cd fadecandy/server && \
-    make submodules && \
-    make && \
-    sudo mv fcserver /usr/local/bin
+    sudo mv fadecandy/bin/fcserver-rpi /usr/local/bin/fcserver
 
 CMD ["/usr/local/bin/fcserver /usr/src/app/fcserver-config.json >/var/log/fcserver.log 2>&1 &","npm", "start"]
