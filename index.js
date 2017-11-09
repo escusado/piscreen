@@ -6,5 +6,6 @@ global.Engine = new EngineClass();
 Engine.setup();
 global.App = new AppClass();
 console.log('Piscreen Starting...');
+App.setup();
 Engine.update();//kickstart
 console.log('Piscreen Started...');
