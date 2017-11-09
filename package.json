@@ -3,12 +3,13 @@
   "version": "0.0.1",
   "main": "app.js",
   "dependencies": {
+    "chroma-js": "^1.3.4",
     "pi-pins": "~1.0.2",
     "rpio": "^0.9.19"
   },
   "devDependencies": {},
   "scripts": {
     "preinstall": "bash deps.sh",
-    "start": "node app.js"
+    "start": "node index.js"
   }
 }
