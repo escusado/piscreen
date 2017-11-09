@@ -13,7 +13,7 @@ module.exports = class Engine extends EventEmitter {
     this.framerate = FRAMERATE;
     this.width = WIDTH;
     this.height = HEIGHT;
-    this.pixel_count = this.width * this.height;
+    this.pixelCount = this.width * this.height;
 
     this.scene = []; //24x16=384
     this.fadeCandyClient = new Opc('localhost', 7890);
@@ -22,7 +22,7 @@ module.exports = class Engine extends EventEmitter {
 
   startScreen () {
     Exec('echo dale pal piso! && fcserver /usr/src/app/fcserver-config.json').stdout.pipe(process.stdout);
-    this.scene = Array.apply(null, Array(PIXEL_COUNT)).map(String.prototype.valueOf,'#000000');
+    this.scene = Array.apply(null, Array(this.pixelCount)).map(String.prototype.valueOf,'#000000');
   }
 
   update () {
@@ -33,7 +33,7 @@ module.exports = class Engine extends EventEmitter {
   }
 
   drawScene () {
-    for (let pixel = 0; pixel < PIXEL_COUNT; pixel++) {
+    for (let pixel = 0; pixel < this.pixelCount; pixel++) {
       const [r, g, b] = Chroma(this.scene[pixel]).rgb();
       this.fadeCandyClient.setPixel(pixel, r, g, b);
     }
