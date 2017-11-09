@@ -1,15 +1,20 @@
 const Exec = require('child_process').exec;
-const Opc = new require('./opc');
+const Opc = new require('../opc');
 const Chroma = require('chroma-js');
 const EventEmitter = require('events').EventEmitter;
 
 const FRAMERATE = 30;
 const WIDTH = 24;
 const HEIGHT = 16;
-const PIXEL_COUNT = WIDTH * HEIGHT;
 
 module.exports = class Engine extends EventEmitter {
   setup () {
+
+    this.framerate = FRAMERATE;
+    this.width = WIDTH;
+    this.height = HEIGHT;
+    this.pixel_count = this.width * this.height;
+
     this.scene = []; //24x16=384
     this.fadeCandyClient = new Opc('localhost', 7890);
     this.startScreen();
@@ -24,7 +29,7 @@ module.exports = class Engine extends EventEmitter {
     const time = new Date().getTime();
     this.emit('update', {time});
     this.drawScene();
-    setTimeout(this.update.bind(this), FRAMERATE);
+    setTimeout(this.update.bind(this), this.framerate);
   }
 
   drawScene () {
