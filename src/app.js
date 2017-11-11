@@ -26,6 +26,13 @@ module.exports = class App {
         scratch.push(this.frame[y][x]);
       }
     }
+
+    for (let x=0; x<Engine.width; x++) {
+      for (let y=Engine.height; y>=0; y--) {
+
+      }
+    }
+
     Engine.scene = scratch;
   }
 }
