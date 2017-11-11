@@ -1,3 +1,5 @@
+const Chroma = require('chroma-js');
+
 module.exports = class App {
   setup () {
     this.frame = [];
@@ -6,11 +8,14 @@ module.exports = class App {
   }
 
   setupFrame () {
+
+    const colorScale = chroma.scale(['#FFABAB', '#FFDAAB', '#DDFFAB', '#ABE4FF', '#D9ABFF', '#FFABAB']).mode('lch').colors(Engine.pixelCount)
+
     for (let y=0; y<Engine.height; y++) {
       const currentColor = y % 2 ? 'red' : 'green';
       this.frame.push([]);
       for (let x=0; x<Engine.width; x++) {
-        this.frame[y][x] = currentColor;
+        this.frame[y][x] = colorScale[x*y];
       }
     }
   }
