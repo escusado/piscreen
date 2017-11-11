@@ -9,15 +9,15 @@ module.exports = class App {
 
   setupFrame () {
 
-    const colorScale = Chroma.scale(['#220000', '#00FF00', 'blue']).mode('rgb').colors(Engine.pixelCount)
+    const colorScale = Chroma.scale(['#440000', '#004400', '000044']).mode('rgb').colors(Engine.pixelCount)
     let colorIndex = 0;
     for (let y=0; y<Engine.height; y++) {
       const currentColor = y % 2 ? 'red' : 'green';
       this.frame.push([]);
       for (let x=0; x<Engine.width; x++) {
-        // console.log('>>', colorScale[x*y]);
         this.frame[y][x] = colorScale[colorIndex];
         colorIndex++;
+        console.log();
       }
     }
   }
