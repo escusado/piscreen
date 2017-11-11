@@ -23,7 +23,7 @@ module.exports = class App {
     const scratch = [];
     for (let y=0; y<Engine.height; y++) {
       for (let x=0; x<Engine.width; x++) {
-        scratch.push(this.frame[x][y]);
+        scratch.push(this.frame[y][x]);
       }
     }
     Engine.scene = scratch;
