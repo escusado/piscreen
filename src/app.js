@@ -7,9 +7,10 @@ module.exports = class App {
 
   setupFrame () {
     for (let y=0; y<Engine.height; y++) {
-      const currentColor = n % 2 ? 'red' : 'blue';
+      const currentColor = y % 2 ? 'red' : 'blue';
+      this.frame.push([]);
       for (let x=0; x<Engine.width; x++) {
-        this.frame[x][y] = currentColor;
+        this.frame[y][x] = currentColor;
       }
     }
   }
