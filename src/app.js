@@ -21,15 +21,15 @@ module.exports = class App {
 
   updateScene () {
     const scratch = [];
-    for (let y=0; y<Engine.height; y++) {
-      for (let x=0; x<Engine.width; x++) {
-        scratch.push(this.frame[y][x]);
-      }
-    }
+    // for (let y=0; y<Engine.height; y++) {
+    //   for (let x=0; x<Engine.width; x++) {
+    //     scratch.push(this.frame[y][x]);
+    //   }
+    // }
 
     for (let x=0; x<Engine.width; x++) {
-      for (let y=Engine.height; y>=0; y--) {
-
+      for (let y=Engine.height-1; y>=0; y--) {
+        scratch.push(this.frame[y][x]);
       }
     }
 
