@@ -15,6 +15,7 @@ module.exports = class App {
       const currentColor = y % 2 ? 'red' : 'green';
       this.frame.push([]);
       for (let x=0; x<Engine.width; x++) {
+        console.log('>>', colorScale[x*y]);
         this.frame[y][x] = colorScale[x*y];
       }
     }
