@@ -9,7 +9,7 @@ module.exports = class App {
 
   setupFrame () {
 
-    const colorScale = chroma.scale(['#FFABAB', '#FFDAAB', '#DDFFAB', '#ABE4FF', '#D9ABFF', '#FFABAB']).mode('lch').colors(Engine.pixelCount)
+    const colorScale = Chroma.scale(['#FFABAB', '#FFDAAB', '#DDFFAB', '#ABE4FF', '#D9ABFF', '#FFABAB']).mode('lch').colors(Engine.pixelCount)
 
     for (let y=0; y<Engine.height; y++) {
       const currentColor = y % 2 ? 'red' : 'green';
