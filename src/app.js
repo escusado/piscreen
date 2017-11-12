@@ -9,7 +9,7 @@ module.exports = class App {
 
   setupFrame () {
 
-    const colorScale = Chroma.scale(['#000022', '#220000', '#002200', '#000022']).mode('rgb').colors(Engine.pixelCount)
+    const colorScale = Chroma.scale(['#000033', '#330000', '#003300']).mode('rgb').colors(Engine.pixelCount)
     let colorIndex = 0;
     for (let y=0; y<Engine.height; y++) {
       // const currentColor = y % 2 ? 'red' : 'green';
@@ -18,7 +18,7 @@ module.exports = class App {
         // this.frame[y][x] = colorScale[colorIndex];
 
         //borders
-        this.frame[y][x] = y===0 || x===0 || y===(Engine.height-1) || x===(Engine.width-1) ? '#222' : colorScale[colorIndex];
+        this.frame[y][x] = y===0 || x===0 || y===(Engine.height-1) || x===(Engine.width-1) ? '#332' : colorScale[colorIndex];
         this.frame[y][x] = y===0 && x===0 ? 'red' : this.frame[y][x];
         this.frame[y][x] = y===(Engine.height-1) && x===(Engine.width-1) ? 'blue' : this.frame[y][x];
         // this.frame[y][x] = colorIndex % 24 ? colorScale[colorIndex] : 'white';
