@@ -30,20 +30,20 @@ module.exports = class App {
   updateScene () {
     const scratch = [];
     const colorScale = Chroma.scale(['#FF0000', '#00FF00', '#0000FF']).mode('rgb').colors(Engine.pixelCount)
-    // for (let x=0; x<Engine.width; x++) {
-    //   for (let y=Engine.height-1; y>=0; y--) {
-    //     scratch.push(colorScale[scratch.length]);
-    //     console.log('>>>>', scratch.length);
-    //     // scratch.push(this.frame[y][x]);
-    //   }
-    // }
-
-    for (let y=0; y<Engine.height; y++) {
-      for (let x=0; x<Engine.width; x++) {
-        scratch.push(this.frame[y][x]);
+    for (let x=0; x<Engine.width; x++) {
+      for (let y=Engine.height-1; y>=0; y--) {
+        // scratch.push(colorScale[scratch.length]);
         // console.log('>>>>', scratch.length);
+        scratch.push(this.frame[y][x]);
       }
     }
+
+    // for (let y=0; y<Engine.height; y++) {
+    //   for (let x=0; x<Engine.width; x++) {
+    //     scratch.push(this.frame[y][x]);
+    //     // console.log('>>>>', scratch.length);
+    //   }
+    // }
 
     Engine.scene = scratch;
   }
