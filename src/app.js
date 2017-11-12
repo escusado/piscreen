@@ -15,8 +15,8 @@ module.exports = class App {
       const currentColor = y % 2 ? 'red' : 'green';
       this.frame.push([]);
       for (let x=0; x<Engine.width; x++) {
-        this.frame[y][x] = colorScale[colorIndex];
-        this.frame[y][x] = colorIndex % 7 ? 'red' : this.frame[y][x];
+        // this.frame[y][x] = colorScale[colorIndex];
+        this.frame[y][x] = colorIndex % 7 ? 'red' : 'blue';
         colorIndex++;
         console.log();
       }
@@ -41,7 +41,7 @@ module.exports = class App {
     for (let y=0; y<Engine.height; y++) {
       for (let x=0; x<Engine.width; x++) {
         scratch.push(colorScale[scratch.length]);
-        console.log('>>>>', scratch.length);
+        // console.log('>>>>', scratch.length);
       }
     }
 
