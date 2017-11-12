@@ -40,6 +40,7 @@ module.exports = class App {
     for (let y=0; y<Engine.height; y++) {
       for (let x=0; x<Engine.width; x++) {
         scratch.push(colorScale[scratch.length]);
+        console.log('>>>>', scratch.length);
       }
     }
 
