@@ -15,17 +15,23 @@ RUN apt-get update && apt-get install -y \
 
 
 # Defines our working directory in container
-WORKDIR /usr/src/app
+WORKDIR /usr/src/
 
 # Copies the package.json first for better cache on later pushes
-COPY . ./
-
-# This install npm dependencies on the resin.io build server,
-# making sure to clean up the artifacts it creates in order to reduce the image size.
-RUN JOBS=MAX npm install --production --unsafe-perm && npm cache clean && rm -rf /tmp/*
-
-COPY . ./
+# COPY . ./
+#
+# # This install npm dependencies on the resin.io build server,
+# # making sure to clean up the artifacts it creates in order to reduce the image size.
+# RUN JOBS=MAX npm install --production --unsafe-perm && npm cache clean && rm -rf /tmp/*
+#
+# COPY . ./
 # This will copy all files in our root to the working  directory in the container
+
+RUN git clone git@github.com:escusado/piscreen.git && \
+    mv piscreen app && \
+    cd app \
+    npm install
+
 
 # Enable systemd init system in container
 ENV INITSYSTEM on
