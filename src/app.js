@@ -73,7 +73,7 @@ module.exports = class App {
         }
       }
     }
-
+    console.log('\n\n===============\n\n');
     for (let x=Engine.width-1; x>=0; x--) {
 
       if(x%2>0){
