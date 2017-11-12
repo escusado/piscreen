@@ -60,7 +60,7 @@ module.exports = class App {
       for (let y=Engine.height-1; y>=(Engine.height/2)-1; y--) {
         // scratch.push(colorScale[scratch.length]);
         console.log('>>>>', y, x, this.frame[y][x], scratch.length);
-        console.log( scratch.length);
+        // console.log( scratch.length);
         scratch.push(this.frame[y][x]);
       }
     }
