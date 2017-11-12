@@ -51,7 +51,7 @@ module.exports = class App {
     for (let x=0; x<Engine.width; x++) {
       for (let y=(Engine.height/2)-1; y>=0; y--) {
         // scratch.push(colorScale[scratch.length]);
-        // console.log('>>>>', scratch.length);
+        console.log('>>>>', scratch.length);
         scratch.push(this.frame[y][x]);
       }
     }
@@ -59,7 +59,7 @@ module.exports = class App {
     for (let x=0; x<Engine.width; x++) {
       for (let y=Engine.height-1; y>=(Engine.height/2)-1; y--) {
         // scratch.push(colorScale[scratch.length]);
-        // console.log('>>>>', scratch.length);
+        console.log('>>>>', scratch.length);
         scratch.push(this.frame[y][x]);
       }
     }

@@ -27,7 +27,7 @@ module.exports = class Engine extends EventEmitter {
 
   update () {
     const time = new Date().getTime();
-    this.emit('update', {time});
+    // this.emit('update', {time});
     this.drawScene();
     setTimeout(this.update.bind(this), this.framerate);
   }
