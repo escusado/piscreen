@@ -45,6 +45,25 @@ module.exports = class App {
       }
     }
 
+    //first half
+    const heightOffset = Engine.height / 2;
+
+    for (let x=0; x<Engine.width; x++) {
+      for (let y=(Engine.height/2)-1; y>=0; y--) {
+        // scratch.push(colorScale[scratch.length]);
+        // console.log('>>>>', scratch.length);
+        scratch.push(this.frame[y][x]);
+      }
+    }
+
+    for (let x=0; x<Engine.width; x++) {
+      for (let y=Engine.height-1; y>=(Engine.height/2)-1; y--) {
+        // scratch.push(colorScale[scratch.length]);
+        // console.log('>>>>', scratch.length);
+        scratch.push(this.frame[y][x]);
+      }
+    }
+
     Engine.scene = scratch;
   }
 }
