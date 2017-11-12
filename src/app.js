@@ -18,12 +18,11 @@ module.exports = class App {
         // this.frame[y][x] = colorScale[colorIndex];
 
         //borders
-        this.frame[y][x] = y===0 || x===0 || y===(Engine.height-1) || x===(Engine.width-1) ? '#222' : colorScale[colorIndex];
+        this.frame[y][x] = y===8 || y===7 || x===7 || x===8 || x===16 || x===15 || y===0 || x===0 || y===(Engine.height-1) || x===(Engine.width-1) ? '#222' : colorScale[colorIndex];
         this.frame[y][x] = y===0 && x===0 ? 'red' : this.frame[y][x];
         this.frame[y][x] = y===(Engine.height-1) && x===(Engine.width-1) ? 'blue' : this.frame[y][x];
         this.frame[y][x] = y===0 && x===(Engine.width-1) ? 'green' : this.frame[y][x];
         this.frame[y][x] = y===(Engine.height-1) && x===0 ? 'magenta' : this.frame[y][x];
-        this.frame[y][x] = y===8 || y===7 || x===7 || x===8 || x===16 || x===15 ? 'cyan' : this.frame[y][x];
 
 
         // this.frame[y][x] = (x%8>0) || (y%8>0) ? 'black' : this.frame[y][x];
