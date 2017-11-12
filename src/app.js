@@ -19,7 +19,7 @@ module.exports = class App {
 
         //borders
         this.frame[y][x] = y===0 || x===0 || y===(Engine.height-1) || x===(Engine.width-1) ? '#222' : colorScale[colorIndex];
-
+        this.frame[y][x] = y===0 && x===0 ? 'red' : this.frame[y][x];
         // this.frame[y][x] = colorIndex % 24 ? colorScale[colorIndex] : 'white';
         colorIndex++;
         console.log();
