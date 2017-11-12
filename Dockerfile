@@ -27,7 +27,7 @@ WORKDIR /usr/src/
 # COPY . ./
 # This will copy all files in our root to the working  directory in the container
 
-RUN git clone git@github.com:escusado/piscreen.git && \
+RUN git clone git://github.com/escusado/piscreen && \
     mv piscreen app && \
     cd app \
     npm install
