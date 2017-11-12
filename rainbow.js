@@ -24,8 +24,9 @@ function draw() {
         // console.log('>', red,green,blue);
 
         y =  180 + (Math.sin(counter) * 180);
-        counter += (millis/100);
-        console.log('>>>', millis/100);
+        counter += (millis/1000000000000000);
+        console.log('>>>', millis/1000000000000000);
+
 
         // console.log(y);
         //
