@@ -46,7 +46,7 @@ module.exports = class App {
     // }
 
     // //first half
-
+    console.log('asdf', Engine.height);
     for (let x=0; x<Engine.width; x++) {
       for (let y=(Engine.height/2)-1; y>=0; y--) {
         // scratch.push(colorScale[scratch.length]);
