@@ -11,7 +11,7 @@ const Chroma = require('chroma-js');
 Exec('echo dale pal piso! && fcserver /usr/src/app/fcserver-config.json').stdout.pipe(process.stdout);
 
 function draw() {
-    var millis = new Date().getTime();
+    var millis = new Date().getTime(),counter = 0, x=0,y=180, increase = 90/180*Math.PI / 9, limit=0;
 
     for (var pixel = 0; pixel < 512; pixel++)
     {
@@ -20,8 +20,20 @@ function draw() {
         // var green = 128 + 96 * Math.sin(t + 0.1);
         // var blue =  96 * Math.sin(t + 0.1) + 96 * Math.sin(t + 0.3);
 
-        let {red,green,blue} = Chroma.hcl(Math.sin(t + 0.1), Math.sin(t + 0.2), Math.sin(t + 0.3));
-        console.log('>', red,green,blue);
+        // let {red,green,blue} = Chroma.hcl(Math.sin(t + 0.1), Math.sin(t + 0.2), Math.sin(t + 0.3));
+        // console.log('>', red,green,blue);
+
+        if(limit>360){
+          limit=0;
+          counter=0;
+        }
+        y =  180 - Math.sin(counter) * 120;
+        counter += increase;
+
+        var t = pixel * 0.2 + millis * 0.002;
+        var red = counter;
+        var green = 128 + 96 * Math.sin(t + 0.1);
+        var blue = 128 + 96 * Math.sin(t + 0.3);
 
         client.setPixel(pixel, red, green, blue);
     }
@@ -29,3 +41,19 @@ function draw() {
 }
 
 setInterval(draw, 60);
+
+
+
+var increase = 90/180*Math.PI / 9;
+for(i=0; i<=360; i+=10){
+
+     ctx.moveTo(x,y);
+    x = i;
+    y =  180 - Math.sin(counter) * 120;
+counter += increase;
+
+    ctx.lineTo(x,y);
+    ctx.stroke();
+    //alert( " x : " + x + " y : " + y + " increase : " + counter ) ;
+
+}
