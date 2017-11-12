@@ -23,7 +23,7 @@ function draw() {
         // let {red,green,blue} = Chroma.hcl(Math.sin(t + 0.1), Math.sin(t + 0.2), Math.sin(t + 0.3));
         // console.log('>', red,green,blue);
 
-        y =  360 - (Math.sin(counter) * 360);
+        y =  720 - (Math.sin(counter) * 360);
         counter += increase;
         console.log('>>>', y);
 
