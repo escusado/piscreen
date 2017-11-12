@@ -18,7 +18,7 @@ module.exports = class App {
         // this.frame[y][x] = colorScale[colorIndex];
 
         //borders
-        this.frame[y][x] = (y===0 || x===0) || (y===Engine.height-1 || x===Engine.width-1) ? 'white' : colorScale[colorIndex];
+        this.frame[y][x] = y===0 || x===0 || y===(Engine.height-1) || x===(Engine.width-1) ? 'white' : colorScale[colorIndex];
 
         // this.frame[y][x] = colorIndex % 24 ? colorScale[colorIndex] : 'white';
         colorIndex++;
