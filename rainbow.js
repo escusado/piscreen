@@ -30,12 +30,14 @@ function draw() {
         y =  180 - Math.sin(counter) * 120;
         counter += increase;
 
-        console.log(y);
+        // console.log(y);
+        //
+        // var t = pixel * 0.2 + millis * 0.002;
+        // var red = y;
+        // var green = 128 + 96 * Math.sin(t + 0.1);
+        // var blue = 128 + 96 * Math.sin(t + 0.3);
 
-        var t = pixel * 0.2 + millis * 0.002;
-        var red = y;
-        var green = 128 + 96 * Math.sin(t + 0.1);
-        var blue = 128 + 96 * Math.sin(t + 0.3);
+        let [red,green,blue] = Chroma.hcl(y, 100, 100).rgb();
 
         client.setPixel(pixel, red, green, blue);
     }
