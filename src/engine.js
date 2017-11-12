@@ -34,6 +34,7 @@ module.exports = class Engine extends EventEmitter {
 
   drawScene () {
     for (let pixel = 0; pixel < this.pixelCount; pixel++) {
+      console.log('>pixel', pixel);
       const [r, g, b] = Chroma(this.scene[pixel]).rgb();
       this.fadeCandyClient.setPixel(pixel, r, g, b);
     }
