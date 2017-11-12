@@ -9,7 +9,7 @@ module.exports = class App {
 
   setupFrame () {
 
-    const colorScale = Chroma.scale(['#000022', '#220000', '#002200']).mode('rgb').colors(Engine.pixelCount)
+    const colorScale = Chroma.scale(['#0000ff', '#ff0000', '#00ff00']).mode('lch').colors(Engine.pixelCount)
     let colorIndex = 0;
     for (let y=0; y<Engine.height; y++) {
       // const currentColor = y % 2 ? 'red' : 'green';
@@ -19,14 +19,14 @@ module.exports = class App {
 
         //borders
         this.frame[y][x] = y===8 || y===7 || x===7 || x===8 || x===16 || x===15 || y===0 || x===0 || y===(Engine.height-1) || x===(Engine.width-1) ? '#222' : colorScale[colorIndex];
-        this.frame[y][x] = y===0 && x===0 ? 'red' : this.frame[y][x];
-        this.frame[y][x] = y===(Engine.height-1) && x===(Engine.width-1) ? 'blue' : this.frame[y][x];
-        this.frame[y][x] = y===0 && x===(Engine.width-1) ? 'green' : this.frame[y][x];
-        this.frame[y][x] = y===(Engine.height-1) && x===0 ? 'magenta' : this.frame[y][x];
-        this.frame[y][x] = (y===0 && x===7) || (y===0 && x===15) ? 'yellow' : this.frame[y][x];
-        this.frame[y][x] = (y===7 && x===7) || (y===7 && x===15) ? 'yellow' : this.frame[y][x];
-        this.frame[y][x] = (y===8 && x===7) || (y===8 && x===15) ? 'yellow' : this.frame[y][x];
-        this.frame[y][x] = (y===15 && x===7) || (y===15 && x===15) ? 'yellow' : this.frame[y][x];
+        // this.frame[y][x] = y===0 && x===0 ? 'red' : this.frame[y][x];
+        // this.frame[y][x] = y===(Engine.height-1) && x===(Engine.width-1) ? 'blue' : this.frame[y][x];
+        // this.frame[y][x] = y===0 && x===(Engine.width-1) ? 'green' : this.frame[y][x];
+        // this.frame[y][x] = y===(Engine.height-1) && x===0 ? 'magenta' : this.frame[y][x];
+        // this.frame[y][x] = (y===0 && x===7) || (y===0 && x===15) ? 'yellow' : this.frame[y][x];
+        // this.frame[y][x] = (y===7 && x===7) || (y===7 && x===15) ? 'yellow' : this.frame[y][x];
+        // this.frame[y][x] = (y===8 && x===7) || (y===8 && x===15) ? 'yellow' : this.frame[y][x];
+        // this.frame[y][x] = (y===15 && x===7) || (y===15 && x===15) ? 'yellow' : this.frame[y][x];
 
         // this.frame[y][x] = (x%8>0) || (y%8>0) ? 'black' : this.frame[y][x];
 
@@ -43,58 +43,18 @@ module.exports = class App {
 
   updateScene () {
     const scratch = [];
-    // const colorScale = Chroma.scale(['#FF0000', '#00FF00', '#0000FF']).mode('rgb').colors(Engine.pixelCount)
-    // for (let x=0; x<Engine.width; x++) {
-    //   for (let y=Engine.height-1; y>=0; y--) {
-    //     // scratch.push(colorScale[scratch.length]);
-    //     // console.log('>>>>', scratch.length);
-    //     scratch.push(this.frame[y][x]);
-    //   }
-    // }
-    //
-    // for (let y=0; y<Engine.height; y++) {
-    //   for (let x=0; x<Engine.width; x++) {
-    //     scratch.push(this.frame[y][x]);
-    //     // console.log('>>>>', scratch.length);
-    //   }
-    // }
 
-    // //first half
-    // console.log('asdf', Engine.height);
     for (let x=Engine.width-1; x>=0; x--) {
-
       for (let y=(Engine.height/2); y<Engine.height; y++) {
-        // scratch.push(colorScale[scratch.length]);
-        console.log('>>>>', y, x, this.frame[y][x], scratch.length);
-        // console.log( scratch.length);
         scratch.push(this.frame[y][x]);
       }
-
     }
-
-    console.log('\n\n===============\n\n');
 
     for (let x=Engine.width-1; x>=0; x--) {
-
-        for (let y=0; y<(Engine.height/2); y++) {
-          // scratch.push(colorScale[scratch.length]);
-          console.log('>>>>', y, x, this.frame[y][x], scratch.length);
-          // console.log( scratch.length);
-          scratch.push(this.frame[y][x]);
-        }
-
+      for (let y=0; y<(Engine.height/2); y++) {
+        scratch.push(this.frame[y][x]);
+      }
     }
-
-
-    // // console.log('\n\n=========================\n\n');
-    // for (let x=Engine.width-1; x>=0; x--) {
-      // for (let y=0; y<(Engine.height/2)-1; y++) {
-      //   // scratch.push(colorScale[scratch.length]);
-      //   console.log('>>>>', y, x, this.frame[y][x], scratch.length);
-      //   // console.log( scratch.length);
-      //   scratch.push(this.frame[y][x]);
-      // }
-    // }
 
     Engine.scene = scratch;
   }
