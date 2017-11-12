@@ -30,6 +30,8 @@ function draw() {
         y =  180 - Math.sin(counter) * 120;
         counter += increase;
 
+        console.log(counter);
+
         var t = pixel * 0.2 + millis * 0.002;
         var red = counter;
         var green = 128 + 96 * Math.sin(t + 0.1);
