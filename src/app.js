@@ -21,6 +21,9 @@ module.exports = class App {
         this.frame[y][x] = y===0 || x===0 || y===(Engine.height-1) || x===(Engine.width-1) ? '#222' : colorScale[colorIndex];
         this.frame[y][x] = y===0 && x===0 ? 'red' : this.frame[y][x];
         this.frame[y][x] = y===(Engine.height-1) && x===(Engine.width-1) ? 'blue' : this.frame[y][x];
+        this.frame[y][x] = y===0 && x===(Engine.width-1) ? 'green' : this.frame[y][x];
+        this.frame[y][x] = y===(Engine.height-1) && x===0 ? 'magenta' : this.frame[y][x];
+
         // this.frame[y][x] = colorIndex % 24 ? colorScale[colorIndex] : 'white';
         colorIndex++;
         console.log();
@@ -52,23 +55,23 @@ module.exports = class App {
 
     // //first half
     // console.log('asdf', Engine.height);
-    for (let x=Engine.width-1; x>=0; x--) {
-      for (let y=(Engine.height/2)-1; y<Engine.height; y++) {
-        // scratch.push(colorScale[scratch.length]);
-        console.log('>>>>', y, x, this.frame[y][x], scratch.length);
-        // console.log( scratch.length);
-        scratch.push(this.frame[y][x]);
-      }
-    }
-    // console.log('\n\n=========================\n\n');
-    for (let x=Engine.width-1; x>=0; x--) {
-      for (let y=0; y<(Engine.height/2)-1; y++) {
-        // scratch.push(colorScale[scratch.length]);
-        console.log('>>>>', y, x, this.frame[y][x], scratch.length);
-        // console.log( scratch.length);
-        scratch.push(this.frame[y][x]);
-      }
-    }
+    // for (let x=Engine.width-1; x>=0; x--) {
+    //   for (let y=(Engine.height/2)-1; y<Engine.height; y++) {
+    //     // scratch.push(colorScale[scratch.length]);
+    //     console.log('>>>>', y, x, this.frame[y][x], scratch.length);
+    //     // console.log( scratch.length);
+    //     scratch.push(this.frame[y][x]);
+    //   }
+    // }
+    // // console.log('\n\n=========================\n\n');
+    // for (let x=Engine.width-1; x>=0; x--) {
+    //   for (let y=0; y<(Engine.height/2)-1; y++) {
+    //     // scratch.push(colorScale[scratch.length]);
+    //     console.log('>>>>', y, x, this.frame[y][x], scratch.length);
+    //     // console.log( scratch.length);
+    //     scratch.push(this.frame[y][x]);
+    //   }
+    // }
 
     Engine.scene = scratch;
   }
