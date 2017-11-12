@@ -84,7 +84,7 @@ module.exports = class App {
           scratch.push(this.frame[y][x]);
         }
       }else{
-        for (let y=Engine.height-1; y<=(Engine.height/2); y--) {
+        for (let y=(Engine.height-1); y>=(Engine.height/2); y--) {
           // scratch.push(colorScale[scratch.length]);
           console.log('>>>>', y, x, this.frame[y][x], scratch.length);
           // console.log( scratch.length);
