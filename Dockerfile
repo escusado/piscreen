@@ -29,7 +29,7 @@ WORKDIR /usr/src/
 
 RUN git clone git://github.com/escusado/piscreen && \
     mv piscreen app && \
-    cd app \
+    cd app && \
     npm install
 
 
