@@ -21,7 +21,7 @@ module.exports = class Engine extends EventEmitter {
   }
 
   startScreen () {
-    Exec('echo dale pal piso! && fcserver /usr/src/app/fcserver-config.json').stdout.pipe(process.stdout);
+    Exec('echo dale pal piso! && fcserver /usr/src/app/fcserver-config.json')/*.stdout.pipe(process.stdout*/);
     this.scene = Array.apply(null, Array(this.pixelCount)).map(String.prototype.valueOf,'#000000');
   }
 
