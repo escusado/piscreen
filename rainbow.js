@@ -34,7 +34,7 @@ function draw() {
         // var green = 128 + 96 * Math.sin(t + 0.1);
         // var blue = 128 + 96 * Math.sin(t + 0.3);
 
-        let [red,green,blue] = Chroma(y, Math.sin(counter)+1, 0.6, 'hsl').rgb();
+        let [red,green,blue] = Chroma(y, 0.5, 0.6, 'hsl').rgb();
 
         client.setPixel(pixel, red, green, blue);
     }
