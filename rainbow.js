@@ -9,11 +9,11 @@ const Chroma = require('chroma-js');
 // const colorScale = Chroma.scale(['#0000ff', '#ff0000', '#00ff00']).mode('lch').colors(Engine.pixelCount)
 
 Exec('echo dale pal piso! && fcserver /usr/src/app/fcserver-config.json').stdout.pipe(process.stdout);
-
+var counter = 0;
 function draw() {
-    var millis = new Date().getTime(),counter = 0, x=0,y=180, increase = 90/180*Math.PI / 50;
+    var millis = new Date().getTime(), x=0,y=180, increase = 90/180*Math.PI / 50;
 
-    for (var pixel = 0; pixel < 512; pixel++)
+    for (var pixel = 0; pixel < 384; pixel++)
     {
         var t = pixel * 0.2 + millis * 0.002;
         // var red =  96 * Math.sin(t + 0.1) + 96 * Math.sin(t);
