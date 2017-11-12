@@ -25,7 +25,7 @@ function draw() {
 
         y =  180 + (Math.sin(counter) * 180);
         counter += increase;
-        console.log('>>>', counter, y, t);
+        // console.log('>>>', counter, y, t);
 
         // console.log(y);
         //
