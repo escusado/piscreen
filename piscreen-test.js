@@ -22,4 +22,4 @@ function draw() {
     client.writePixels();
 }
 
-setInterval(draw, 30);
+setInterval(draw, 60);
