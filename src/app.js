@@ -51,53 +51,40 @@ module.exports = class App {
     //     scratch.push(this.frame[y][x]);
     //   }
     // }
-
-    for (let y=0; y<Engine.height; y++) {
-      for (let x=0; x<Engine.width; x++) {
-        scratch.push(this.frame[y][x]);
-        // console.log('>>>>', scratch.length);
-      }
-    }
+    //
+    // for (let y=0; y<Engine.height; y++) {
+    //   for (let x=0; x<Engine.width; x++) {
+    //     scratch.push(this.frame[y][x]);
+    //     // console.log('>>>>', scratch.length);
+    //   }
+    // }
 
     // //first half
     // console.log('asdf', Engine.height);
-    // for (let x=Engine.width-1; x>=0; x--) {
-    //
-    //   if(x%2>0){
-    //     for (let y=0; y<(Engine.height/2); y++) {
-    //       // scratch.push(colorScale[scratch.length]);
-    //       console.log('>>>>', y, x, this.frame[y][x], scratch.length);
-    //       // console.log( scratch.length);
-    //       scratch.push(this.frame[y][x]);
-    //     }
-    //   }else{
-    //     for (let y=(Engine.height/2)-1; y>=0; y--) {
-    //       // scratch.push(colorScale[scratch.length]);
-    //       console.log('>>>>', y, x, this.frame[y][x], scratch.length);
-    //       // console.log( scratch.length);
-    //       scratch.push(this.frame[y][x]);
-    //     }
-    //   }
-    // }
-    // console.log('\n\n===============\n\n');
-    // for (let x=Engine.width-1; x>=0; x--) {
-    //
-    //   if(x%2>0){
-    //     for (let y=(Engine.height/2); y<Engine.height; y++) {
-    //       // scratch.push(colorScale[scratch.length]);
-    //       console.log('>>>>', y, x, this.frame[y][x], scratch.length);
-    //       // console.log( scratch.length);
-    //       scratch.push(this.frame[y][x]);
-    //     }
-    //   }else{
-    //     for (let y=(Engine.height-1); y>=(Engine.height/2); y--) {
-    //       // scratch.push(colorScale[scratch.length]);
-    //       console.log('>>>>', y, x, this.frame[y][x], scratch.length);
-    //       // console.log( scratch.length);
-    //       scratch.push(this.frame[y][x]);
-    //     }
-    //   }
-    // }
+    for (let x=Engine.width-1; x>=0; x--) {
+
+      for (let y=(Engine.height/2); y<Engine.height; y++) {
+        // scratch.push(colorScale[scratch.length]);
+        console.log('>>>>', y, x, this.frame[y][x], scratch.length);
+        // console.log( scratch.length);
+        scratch.push(this.frame[y][x]);
+      }
+
+    }
+
+    console.log('\n\n===============\n\n');
+
+    for (let x=Engine.width-1; x>=0; x--) {
+
+        for (let y=0; y<(Engine.height/2); y++) {
+          // scratch.push(colorScale[scratch.length]);
+          console.log('>>>>', y, x, this.frame[y][x], scratch.length);
+          // console.log( scratch.length);
+          scratch.push(this.frame[y][x]);
+        }
+
+    }
+
 
     // // console.log('\n\n=========================\n\n');
     // for (let x=Engine.width-1; x>=0; x--) {
