@@ -21,6 +21,7 @@ function draw() {
         // var blue =  96 * Math.sin(t + 0.1) + 96 * Math.sin(t + 0.3);
 
         let {red,green,blue} = Chroma.hcl(Math.sin(t + 0.1), Math.sin(t + 0.2), Math.sin(t + 0.3));
+        console.log('>', red,green,blue);
 
         client.setPixel(pixel, red, green, blue);
     }
