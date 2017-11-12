@@ -11,7 +11,7 @@ const Chroma = require('chroma-js');
 Exec('echo dale pal piso! && fcserver /usr/src/app/fcserver-config.json').stdout.pipe(process.stdout);
 
 function draw() {
-    var millis = new Date().getTime(),counter = 0, x=0,y=180, increase = 90/180*Math.PI / 100, limit=0;
+    var millis = new Date().getTime(),counter = 0, x=0,y=180, increase = 90/180*Math.PI / 50;
 
     for (var pixel = 0; pixel < 512; pixel++)
     {
@@ -23,7 +23,7 @@ function draw() {
         // let {red,green,blue} = Chroma.hcl(Math.sin(t + 0.1), Math.sin(t + 0.2), Math.sin(t + 0.3));
         // console.log('>', red,green,blue);
 
-        y =  (180 - Math.sin(counter) * 120)-50;
+        y =  Math.sin(counter) * 120;
         counter += increase;
         console.log('>>>', y);
 
