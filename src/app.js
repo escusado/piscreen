@@ -9,7 +9,7 @@ module.exports = class App {
 
   setupFrame () {
 
-    const colorScale = Chroma.scale(['#0000ff', '#ff0000', '#00ff00']).mode('rgb').colors(Engine.pixelCount)
+    const colorScale = Chroma.scale(['#0000ff', '#ff0000', '#00ff00']).mode('lch').colors(Engine.pixelCount)
     let colorIndex = 0;
 
     for (let y=0; y<Engine.height; y++) {
