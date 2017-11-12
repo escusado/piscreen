@@ -15,7 +15,7 @@ module.exports = class App {
     for (let y=0; y<Engine.height; y++) {
       this.frame.push([]);
       for (let x=0; x<Engine.width; x++) {
-        this.frame[y][x] = colorScale[colorIndex];
+        this.frame[y][x] = Chroma(colorScale[colorIndex]).darken(2.6);
 
         //borders
         // this.frame[y][x] = y===8 || y===7 || x===7 || x===8 || x===16 || x===15 || y===0 || x===0 || y===(Engine.height-1) || x===(Engine.width-1) ? '#222' : colorScale[colorIndex];
