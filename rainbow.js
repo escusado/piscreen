@@ -44,16 +44,16 @@ setInterval(draw, 60);
 
 
 
-var increase = 90/180*Math.PI / 9;
-for(i=0; i<=360; i+=10){
-
-     ctx.moveTo(x,y);
-    x = i;
-    y =  180 - Math.sin(counter) * 120;
-counter += increase;
-
-    ctx.lineTo(x,y);
-    ctx.stroke();
-    //alert( " x : " + x + " y : " + y + " increase : " + counter ) ;
-
-}
+// var increase = 90/180*Math.PI / 9;
+// for(i=0; i<=360; i+=10){
+//
+//      ctx.moveTo(x,y);
+//     x = i;
+//     y =  180 - Math.sin(counter) * 120;
+// counter += increase;
+//
+//     ctx.lineTo(x,y);
+//     ctx.stroke();
+//     //alert( " x : " + x + " y : " + y + " increase : " + counter ) ;
+//
+// }
