@@ -3,6 +3,9 @@
 
 var OPC = new require('./opc')
 var client = new OPC('localhost', 7890);
+const Exec = require('child_process').exec;
+
+Exec('echo dale pal piso! && fcserver /usr/src/app/fcserver-config.json').stdout.pipe(process.stdout);
 
 function draw() {
     var millis = new Date().getTime();
