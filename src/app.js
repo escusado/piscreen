@@ -46,12 +46,12 @@ module.exports = class App {
     //   }
     // }
 
-    // for (let y=0; y<Engine.height; y++) {
-    //   for (let x=0; x<Engine.width; x++) {
-    //     scratch.push(this.frame[y][x]);
-    //     // console.log('>>>>', scratch.length);
-    //   }
-    // }
+    for (let y=0; y<Engine.height; y++) {
+      for (let x=0; x<Engine.width; x++) {
+        scratch.push(this.frame[y][x]);
+        // console.log('>>>>', scratch.length);
+      }
+    }
 
     // //first half
     // console.log('asdf', Engine.height);
