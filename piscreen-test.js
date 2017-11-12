@@ -13,9 +13,9 @@ function draw() {
     for (var pixel = 0; pixel < 512; pixel++)
     {
         var t = pixel * 0.2 + millis * 0.002;
-        var red = 128 + 96 * Math.sin(t);
+        var red =  96 * Math.sin(t + 0.1) + 96 * Math.sin(t);
         var green = 128 + 96 * Math.sin(t + 0.1);
-        var blue = 128 + 96 * Math.sin(t + 0.3);
+        var blue =  96 * Math.sin(t + 0.1) + 96 * Math.sin(t + 0.3);
 
         client.setPixel(pixel, red, green, blue);
     }
