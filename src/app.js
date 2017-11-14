@@ -28,6 +28,7 @@ module.exports = class App {
         this.frame[y][x] = (y===8 && x===7) || (y===8 && x===15) ? 'yellow' : this.frame[y][x];
         this.frame[y][x] = (y===15 && x===7) || (y===15 && x===15) ? 'yellow' : this.frame[y][x];
 
+
         colorIndex++;
         console.log();
       }
