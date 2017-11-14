@@ -25,7 +25,6 @@ function draw() {
 
         y =  180 + (Math.sin(counter) * 180);
         counter += increase;
-        console.log('>>>', Math.sin(pixel));
 
         // console.log(y);
         //
@@ -41,7 +40,7 @@ function draw() {
     client.writePixels();
 }
 
-setInterval(draw, 30);
+setInterval(draw, 60);
 
 
 
