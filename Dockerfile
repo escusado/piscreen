@@ -11,7 +11,12 @@ RUN apt-get update && apt-get install -y \
       libtool \
       python \
       sudo \
-      build-essential
+      build-essential \
+      libcairo2-dev \
+      libjpeg8-dev \
+      libpango1.0-dev \
+      libgif-dev 
+
 
 
 # Defines our working directory in container
