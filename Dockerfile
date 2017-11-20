@@ -15,7 +15,8 @@ RUN apt-get update && apt-get install -y \
       libcairo2-dev \
       libjpeg8-dev \
       libpango1.0-dev \
-      libgif-dev 
+      libgif-dev \
+      dnsmasq
 
 
 
@@ -45,14 +46,20 @@ ENV INITSYSTEM on
 RUN cat >/etc/udev/rules.d/20-gpiomem.rules <<EOF
 
 # server.js will run when container starts up on the device
-
-
 WORKDIR /usr/src/
 RUN git clone git://github.com/scanlime/fadecandy && \
     cd fadecandy/server && \
     make submodules && \
     make && \
     sudo mv fcserver /usr/local/bin
+
+WORKDIR /usr/src/
+RUN mkdir wifi-connect
+WORKDIR /usr/src/wifi-connect
+RUN curl https://api.github.com/repos/resin-io/resin-wifi-connect/releases/latest -s \
+    | grep -hoP 'browser_download_url": "\K.*%%RESIN_ARCH%%\.tar\.gz' \
+    | xargs -n1 curl -Ls \
+    | tar -xvz -C ./
 
 WORKDIR /usr/src/app
 RUN cp /usr/src/fadecandy/examples/node/opc.js /usr/src/app
