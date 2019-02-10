@@ -16,19 +16,6 @@ module.exports = class App {
       this.frame.push([]);
       for (let x=0; x<Engine.width; x++) {
         this.frame[y][x] = Chroma(colorScale[colorIndex]).darken(8).hex();
-
-        //borders
-        this.frame[y][x] = y===8 || y===7 || x===7 || x===8 || x===16 || x===15 || y===0 || x===0 || y===(Engine.height-1) || x===(Engine.width-1) ? '#222' : colorScale[colorIndex];
-        this.frame[y][x] = y===0 && x===0 ? 'red' : this.frame[y][x];
-        this.frame[y][x] = y===(Engine.height-1) && x===(Engine.width-1) ? 'blue' : this.frame[y][x];
-        this.frame[y][x] = y===0 && x===(Engine.width-1) ? 'green' : this.frame[y][x];
-        this.frame[y][x] = y===(Engine.height-1) && x===0 ? 'magenta' : this.frame[y][x];
-        this.frame[y][x] = (y===0 && x===7) || (y===0 && x===15) ? 'yellow' : this.frame[y][x];
-        this.frame[y][x] = (y===7 && x===7) || (y===7 && x===15) ? 'yellow' : this.frame[y][x];
-        this.frame[y][x] = (y===8 && x===7) || (y===8 && x===15) ? 'yellow' : this.frame[y][x];
-        this.frame[y][x] = (y===15 && x===7) || (y===15 && x===15) ? 'yellow' : this.frame[y][x];
-
-
         colorIndex++;
         console.log();
       }

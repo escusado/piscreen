@@ -10,7 +10,7 @@ Exec('echo dale pal piso! && fcserver /usr/src/app/fcserver-config.json').stdout
 function draw() {
     var millis = new Date().getTime();
 
-    for (var pixel = 0; pixel < 512; pixel++)
+    for (var pixel = 0; pixel < 1; pixel++)
     {
         var t = pixel * 0.2 + millis * 0.002;
         var red = 128 + 96 * Math.sin(t);
