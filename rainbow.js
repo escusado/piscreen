@@ -13,7 +13,7 @@ var counter = 0;
 function draw() {
     var millis = new Date().getTime(), x=0,y=180, increase = 90/180*Math.PI / 50;
 
-    for (var pixel = 0; pixel < 384; pixel++)
+    for (var pixel = 0; pixel < 1; pixel++)
     {
         var t = pixel * 0.2 + millis * 0.002;
         // var red =  96 * Math.sin(t + 0.1) + 96 * Math.sin(t);
@@ -33,7 +33,7 @@ function draw() {
         // var green = 128 + 96 * Math.sin(t + 0.1);
         // var blue = 128 + 96 * Math.sin(t + 0.3);
 
-        let [red,green,blue] = Chroma(y, 0.4, 0.2, 'hsl').rgb();
+        let [red,green,blue] = Chroma(y, 0.4, .5, 'hsl').rgb();
 
         client.setPixel(pixel, red, green, blue);
     }

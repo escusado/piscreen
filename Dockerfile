@@ -16,7 +16,8 @@ RUN apt-get update && apt-get install -y \
       libjpeg8-dev \
       libpango1.0-dev \
       libgif-dev \
-      dnsmasq
+      dnsmasq \
+      wireless-tools
 
 
 
@@ -52,14 +53,6 @@ RUN git clone git://github.com/scanlime/fadecandy && \
     make submodules && \
     make && \
     sudo mv fcserver /usr/local/bin
-
-WORKDIR /usr/src/
-RUN mkdir wifi-connect
-WORKDIR /usr/src/wifi-connect
-RUN curl https://api.github.com/repos/resin-io/resin-wifi-connect/releases/latest -s \
-    | grep -hoP 'browser_download_url": "\K.*%%RESIN_ARCH%%\.tar\.gz' \
-    | xargs -n1 curl -Ls \
-    | tar -xvz -C ./
 
 WORKDIR /usr/src/app
 RUN cp /usr/src/fadecandy/examples/node/opc.js /usr/src/app

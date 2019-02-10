@@ -4,8 +4,8 @@ const Chroma = require('chroma-js');
 const EventEmitter = require('events').EventEmitter;
 
 const FRAMERATE = 30;
-const WIDTH = 24;
-const HEIGHT = 16;
+const WIDTH = 1;
+const HEIGHT = 1;
 
 module.exports = class Engine extends EventEmitter {
   setup () {
@@ -36,6 +36,7 @@ module.exports = class Engine extends EventEmitter {
     for (let pixel = 0; pixel < this.pixelCount; pixel++) {
       const [r, g, b] = Chroma(this.scene[pixel]).rgb();
       this.fadeCandyClient.setPixel(pixel, r, g, b);
+      console.log('>pixel', r);
     }
     this.fadeCandyClient.writePixels();
   }
