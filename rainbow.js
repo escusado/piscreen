@@ -16,10 +16,10 @@ function draw() {
     for (var pixel = 0; pixel < PIXEL_COUNT; pixel++)
     {
       const [r, g, b] = Chroma(colorScale[pixel]).rgb();
-        var t = pixel * 0.2 + millis * 0.002;
-        var r = 128 + 96 * Math.sin(t);
-        var g = 128 + 96 * Math.sin(t + 0.1);
-        var b = 128 + 96 * Math.sin(t + 0.3);
+      t = pixel * 0.2 + millis * 0.002;
+      r = 128 + 96 * Math.sin(t);
+      g = 128 + 96 * Math.sin(t + 0.1);
+      b = 128 + 96 * Math.sin(t + 0.3);
 
 
         client.setPixel(pixel, r, g, b);
