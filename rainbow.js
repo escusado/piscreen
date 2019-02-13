@@ -17,9 +17,9 @@ function draw() {
     {
       let [r, g, b] = Chroma(colorScale[pixel]).rgb();
       t = pixel * 0.2 + millis * 0.002;
-      r = 128 + 96 * Math.sin(t);
-      g = 128 + 96 * Math.sin(t + 0.1);
-      b = 128 + 96 * Math.sin(t + 0.3);
+      r *= Math.sin(t);
+      g *= Math.sin(t + 0.1);
+      b *= Math.sin(t + 0.3);
 
 
         client.setPixel(pixel, r, g, b);
