@@ -20,8 +20,8 @@ function draw() {
         var green = 128 + 96 * Math.sin(t + 0.1);
         var blue = 128 + 96 * Math.sin(t + 0.3);
 
-        const [r, g, b] = Chroma(colorScale[pixel]).darken(8).rgb();
-
+        const [r, g, b] = Chroma(colorScale[pixel]).rgb();
+        console.log('>>>>>', pixel, r, g, b);
         client.setPixel(pixel, r, g, b);
     }
     client.writePixels();
