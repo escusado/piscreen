@@ -11,7 +11,7 @@ const colorScale = Chroma.scale(['#0000ff', '#ff0000', '#00ff00']).mode('lch').c
 function draw() {
     var millis = new Date().getTime();
 
-    for (var pixel = 0; pixel < 1; pixel++)
+    for (var pixel = 0; pixel < 63; pixel++)
     {
         var t = pixel * 0.2 + millis * 0.002;
         var red = 128 + 96 * Math.sin(t);
