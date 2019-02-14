@@ -7,7 +7,7 @@ const Exec = require('child_process').exec;
 
 let PIXEL_COUNT = 63;
 
-Exec('echo dale pal piso! && fcserver-rpi').stdout.pipe(process.stdout);
+// Exec('echo dale pal piso! && fcserver-rpi').stdout.pipe(process.stdout);
 const colorScale = Chroma.scale(['#0000ff', '#ff0000', '#00ff00']).mode('lch').colors(PIXEL_COUNT);
 
 function draw() {
@@ -20,7 +20,6 @@ function draw() {
       r *= Math.sin(t);
       g *= Math.sin(t + 0.1);
       b *= Math.sin(t + 0.3);
-
 
         client.setPixel(pixel, r, g, b);
     }
